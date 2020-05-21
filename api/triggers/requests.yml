@@ -1,0 +1,5 @@
+put:
+  properties:
+    $ref: ../dto.yml#/Trigger
+  additionalProperties: false
+  type: object
