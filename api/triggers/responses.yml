@@ -1,0 +1,16 @@
+put:
+  200:
+    description: "Trigger created"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              example: trigger_id
+            message:
+              type: string
+              example: trigger created
+  400:
+    $ref: "../responses/_index.yml#/BadRequest"
