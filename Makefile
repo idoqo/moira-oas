@@ -1,8 +1,11 @@
-SPEC_FILE = swagger.yml
-CLIENTS_DIR = ~/lab/gsoc/moira/clients
+BUILD_DIR = build
+SPEC_FILE = $(BUILD_DIR)/openapi.yml
+CLIENTS_DIR = $(BUILD_DIR)/clients
 
 merge-spec:
 	swagger-cli bundle main.yml -o $(SPEC_FILE) -t yaml
+validate-spec:
+	openapi-generator validate -i $(SPEC_FILE)
 generate-py:
 	openapi-generator generate -g python -i $(SPEC_FILE) -o $(CLIENTS_DIR)/python
 generate-go:
