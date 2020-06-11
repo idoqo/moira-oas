@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  redoc:
+    image: redocly/redoc
+    container_name: moira_docs_redoc
+    ports:
+    - "9900:80"
+    volumes:
+    - ./api/swagger.yml:/usr/share/nginx/html/swagger/swagger.yml
+    environment:
+      SPEC_URL: swagger/swagger.yml
+      PAGE_TITLE: "Moira API Description"
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: moira_docs_swaggerui
+    ports:
+      - "9901:8080"
+    volumes:
+    - ./api/swagger.yml:/swagger.yml
+    environment:
+      SWAGGER_JSON: /swagger.yml
