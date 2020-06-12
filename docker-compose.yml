@@ -7,7 +7,7 @@ services:
     ports:
     - "9900:80"
     volumes:
-    - ./api/swagger.yml:/usr/share/nginx/html/swagger/swagger.yml
+    - ./build/openapi.yml:/usr/share/nginx/html/openapi/openapi.yml
     environment:
       SPEC_URL: swagger/swagger.yml
       PAGE_TITLE: "Moira API Description"
@@ -18,6 +18,6 @@ services:
     ports:
       - "9901:8080"
     volumes:
-    - ./api/swagger.yml:/swagger.yml
+    - ./build/openapi.yml:/openapi.yml
     environment:
-      SWAGGER_JSON: /swagger.yml
+      SWAGGER_JSON: /openapi.yml
