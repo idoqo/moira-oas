@@ -1,7 +1,7 @@
 # Documentation
 If you're new here, better check out the main Moira Alert [README](https://github.com/moira-alert/moira/blob/master/README.md).
 
-The pre-built docker image is available at idoko/moira-oas.
+The pre-built docker image is available on docker hub at [idoko/moira-oas](https://hub.docker.com/r/idoko/moira-oas).
 ## Usage
 The OpenAPI description files are kept in a folder that corresponds to the path name. To bundle them into a single `yaml` file,
 Install [APIDevTools/swagger-cli](https://github.com/APIDevTools/swagger-cli) globally with:
