@@ -14,6 +14,6 @@ pattern:
     tags:
       - pattern
     parameters:
-      - $ref: ../parameters/_index.yml#/pattern
+      - $ref: ../shared/parameters/_index.yml#/pattern
     responses:
       $ref: ./responses.yml#/delete_pattern

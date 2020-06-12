@@ -1,2 +1,2 @@
 put:
-  $ref: "../schemas/Trigger.yml#/Trigger"
+  $ref: "../shared/schemas/Trigger.yml#/Trigger"

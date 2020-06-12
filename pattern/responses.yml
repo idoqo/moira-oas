@@ -10,7 +10,7 @@ get_patterns:
               type: array
               description: "List of fetched patterns"
               items:
-                $ref: "../schemas/Pattern.yml#/Pattern"
+                $ref: "../shared/schemas/Pattern.yml#/Pattern"
 
 delete_pattern:
   200:

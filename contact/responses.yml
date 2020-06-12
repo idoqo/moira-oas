@@ -10,7 +10,7 @@ get_contacts:
               type: array
               description: "List of all the retrieved Moira contacts."
               items:
-                $ref: "../schemas/Contact.yml#/Contact"
+                $ref: "../shared/schemas/Contact.yml#/Contact"
 
 new_contact:
   200:
@@ -18,9 +18,9 @@ new_contact:
     content:
       applicaton/json:
         schema:
-          $ref: "../schemas/Contact.yml#/Contact"
+          $ref: "../shared/schemas/Contact.yml#/Contact"
   400:
-    $ref: "../responses/_index.yml#/BadRequest"
+    $ref: "../shared/responses/_index.yml#/BadRequest"
 
 update_contact:
   200:
@@ -28,9 +28,9 @@ update_contact:
     content:
       application/json:
         schema:
-          $ref: "../schemas/Contact.yml#/Contact"
+          $ref: "../shared/schemas/Contact.yml#/Contact"
   400:
-    $ref: "../responses/_index.yml#/BadRequest"
+    $ref: "../shared/responses/_index.yml#/BadRequest"
 
 delete_contact:
   200:

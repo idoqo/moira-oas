@@ -22,4 +22,4 @@ get_trigger_events:
               type: array
               description: "List of trigger events"
               items:
-                $ref: "../schemas/Event.yml#/Event"
+                $ref: "../shared/schemas/Event.yml#/Event"
