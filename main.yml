@@ -49,8 +49,8 @@ paths:
     $ref: ./user/methods.yml#/settings
 components:
   schemas:
-    $ref: "./schemas/_index.yml"
+    $ref: "./shared/schemas/_index.yml"
   parameters:
-    $ref: "./parameters/_index.yml"
+    $ref: "./shared/parameters/_index.yml"
   responses:
-    $ref: "./responses/_index.yml"
+    $ref: "./shared/responses/_index.yml"

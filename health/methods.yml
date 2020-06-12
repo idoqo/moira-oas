@@ -17,7 +17,7 @@ notifier:
       content:
         application/json:
           schema:
-            $ref: "../schemas/NotifierState.yml#/NotifierState"
+            $ref: "../shared/schemas/NotifierState.yml#/NotifierState"
           examples:
             error:
               description: "Put the service in an ERROR state"

@@ -5,13 +5,13 @@ trigger:
     tags:
       - trigger
     parameters:
-      - $ref: ../parameters/_index.yml#/triggerID
+      - $ref: ../shared/parameters/_index.yml#/triggerID
     requestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: "../schemas/Trigger.yml#/Trigger"
+            $ref: "../shared/schemas/Trigger.yml#/Trigger"
     responses:
       $ref: responses.yml#/put
   get:
@@ -20,7 +20,7 @@ trigger:
     tags:
       - trigger
     parameters:
-      - $ref: ../parameters/_index.yml#/triggerID
+      - $ref: ../shared/parameters/_index.yml#/triggerID
     responses:
       $ref: ./responses.yml#/get
 render:
@@ -30,10 +30,10 @@ render:
     tags:
       - trigger
     parameters:
-      - $ref: ../parameters/_index.yml#/triggerID
-      - $ref: ../parameters/_index.yml#/targetID
-      - $ref: ../parameters/_index.yml#/from
-      - $ref: ../parameters/_index.yml#/to
+      - $ref: ../shared/parameters/_index.yml#/triggerID
+      - $ref: ../shared/parameters/_index.yml#/targetID
+      - $ref: ../shared/parameters/_index.yml#/from
+      - $ref: ../shared/parameters/_index.yml#/to
     responses:
       $ref: ./responses.yml#/get_render
 metrics:
@@ -43,8 +43,8 @@ metrics:
     tags:
       - trigger
     parameters:
-      - $ref: ../parameters/_index.yml#/triggerID
-      - $ref: ../parameters/_index.yml#/from
-      - $ref: ../parameters/_index.yml#/to
+      - $ref: ../shared/parameters/_index.yml#/triggerID
+      - $ref: ../shared/parameters/_index.yml#/from
+      - $ref: ../shared/parameters/_index.yml#/to
     responses:
       $ref: ./responses.yml#/get_metrics

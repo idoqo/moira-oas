@@ -13,7 +13,7 @@ put:
               type: string
               example: trigger created
   400:
-    $ref: "../responses/_index.yml#/BadRequest"
+    $ref: "../shared/responses/_index.yml#/BadRequest"
 
 get:
   200:
@@ -21,9 +21,9 @@ get:
     content:
       application/json:
         schema:
-          $ref: "../schemas/Trigger.yml#/Trigger"
+          $ref: "../shared/schemas/Trigger.yml#/Trigger"
   404:
-    $ref: "../responses/_index.yml#/NotFound"
+    $ref: "../shared/responses/_index.yml#/NotFound"
 
 get_render:
   200:
@@ -34,7 +34,7 @@ get_render:
           type: string
           format: binary
   500:
-    $ref: "../responses/_index.yml#/ServerError"
+    $ref: "../shared/responses/_index.yml#/ServerError"
 
 get_metrics:
   200:
@@ -46,6 +46,6 @@ get_metrics:
           additionalProperties:
             type: array
             items:
-              $ref: "../schemas/MetricValue.yml#/MetricValue"
+              $ref: "../shared/schemas/MetricValue.yml#/MetricValue"
   500:
-    $ref: "../responses/_index.yml#/ServerError"
+    $ref: "../shared/responses/_index.yml#/ServerError"
