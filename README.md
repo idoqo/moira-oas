@@ -8,9 +8,9 @@ Install [APIDevTools/swagger-cli](https://github.com/APIDevTools/swagger-cli) gl
 ```bash
 $ npm -i g swagger-cli
 ```
-The command to merge them already defined in the `Makefile`. To use it, run
+The command to merge them is already defined in the `Makefile`. To use it, run
 ```bash
-$ make merge-spec
+$ make spec
 ```
 And it will generate the final documentation file in `build/openapi.yml`
 
