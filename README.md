@@ -1,3 +1,5 @@
+![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/idoko/moira-oas/latest?color=green&label=docker&style=flat-square)
+
 # Documentation
 If you're new here, better check out the main Moira Alert [README](https://github.com/moira-alert/moira/blob/master/README.md).
 
