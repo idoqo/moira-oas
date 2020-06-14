@@ -26,6 +26,15 @@ page:
   description: "Defines the number of the displayed page. E.g, page=2 would display the 2nd page."
   example: 1
 
+pattern:
+  in: path
+  name: pattern
+  required: true
+  schema:
+    type: string
+  example: "DevOps.my_server.hdd.freespace_mbytes"
+  description: "Trigger pattern to operate on."
+
 size:
   in: query
   name: size
@@ -34,6 +43,15 @@ size:
     type: integer
   description: "Number of items to be displayed on one page."
   example: 15
+
+tag:
+  in: path
+  name: tag
+  required: true
+  schema:
+    type: string
+  description: "name of the tag"
+  example: "cpu"
 
 targetID:
   in: query
@@ -62,12 +80,4 @@ triggerID:
     format: uuid
   description: The ID of updated trigger
   example: 5A8AF369-86D2-44DD-B514-D47995ED6AF7
-  
-pattern:
-  in: path
-  name: pattern
-  required: true
-  schema:
-    type: string
-  example: "DevOps.my_server.hdd.freespace_mbytes"
-  description: "Trigger pattern to operate on."
+
