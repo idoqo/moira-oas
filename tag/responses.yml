@@ -12,3 +12,17 @@ get_tags:
               items:
                 type: string
                 example: "cpu"
+
+get_tags_subscriptions:
+  200:
+    description: "Successful"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            list:
+              items:
+                type: array
+                items:
+                  $ref: "../shared/schemas/TagStatistics.yml#/TagStatistics"

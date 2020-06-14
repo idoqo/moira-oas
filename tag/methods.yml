@@ -1,8 +1,16 @@
 tags:
   get:
-    summary: "Get all tags"
+    summary: "get all tags"
     operationId: GetTags
     tags:
       - tag
     responses:
       $ref: ./responses.yml#/get_tags
+stats:
+  get:
+    summary: "get all tags and subscriptions"
+    operationId: GetTagsSubscriptions
+    tags:
+      - tag
+    responses:
+      $ref: ./responses.yml#/get_tags_subscriptions

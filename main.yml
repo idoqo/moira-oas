@@ -37,6 +37,8 @@ paths:
     $ref: ./pattern/methods.yml#/pattern
   /tag:
     $ref: ./tag/methods.yml#/tags
+  /tag/stats:
+    $ref: ./tag/methods.yml#/stats
   /trigger:
     $ref: ./triggers/methods.yml
   /trigger/{triggerID}:

@@ -8,6 +8,8 @@ Event:
   $ref: "./Event.yml#/Event"
 Subscription:
   $ref: "./Subscription.yml#/Subscription"
+TagStatistics:
+  $ref: "./TagStatistics.yml#/TagStatistics"
 Trigger:
   $ref: "./Trigger.yml#/Trigger"
 NotifierState:
