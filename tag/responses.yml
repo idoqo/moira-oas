@@ -1,0 +1,14 @@
+get_tags:
+  200:
+    description: "Tags fetched successfully"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            list:
+              type: array
+              description: "List of all the tags"
+              items:
+                type: string
+                example: "cpu"

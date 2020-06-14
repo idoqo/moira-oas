@@ -26,7 +26,7 @@ paths:
   /contact/{contactId}/test:
     $ref: ./contact/methods.yml#/testContact
   /event/all:
-    $ref: ./event/methods.yml#/allEvents
+    $ref: ./event/methods.yml#/events
   /event/{triggerId}:
     $ref: ./event/methods.yml#/eventForTrigger
   /health/notifier:
@@ -35,6 +35,8 @@ paths:
     $ref: ./pattern/methods.yml#/patterns
   /pattern/{pattern}:
     $ref: ./pattern/methods.yml#/pattern
+  /tag:
+    $ref: ./tag/methods.yml#/tags
   /trigger:
     $ref: ./triggers/methods.yml
   /trigger/{triggerID}:

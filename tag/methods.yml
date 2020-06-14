@@ -1,0 +1,8 @@
+tags:
+  get:
+    summary: "Get all tags"
+    operationId: GetTags
+    tags:
+      - tag
+    responses:
+      $ref: ./responses.yml#/get_tags

@@ -5,18 +5,18 @@ services:
     image: redocly/redoc
     container_name: moira_docs_redoc
     ports:
-    - "9900:80"
+    - "9901:80"
     volumes:
     - ./build/openapi.yml:/usr/share/nginx/html/openapi/openapi.yml
     environment:
-      SPEC_URL: swagger/swagger.yml
+      SPEC_URL: openapi/openapi.yml
       PAGE_TITLE: "Moira API Description"
 
   swagger-ui:
     image: swaggerapi/swagger-ui
     container_name: moira_docs_swaggerui
     ports:
-      - "9901:8080"
+      - "9900:8080"
     volumes:
     - ./build/openapi.yml:/openapi.yml
     environment:

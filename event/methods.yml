@@ -1,4 +1,4 @@
-allEvents:
+events:
   delete:
     summary: "Deletes all notification events"
     operationId: DeleteEvents
