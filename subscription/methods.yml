@@ -1,0 +1,21 @@
+subscriptions:
+  get:
+    summary: "Get all subscriptions"
+    operationId: GetSubscriptions
+    tags:
+      - subscription
+    responses:
+      $ref: ./responses.yml#/get_subscriptions
+  put:
+    summary: "create a new subscription"
+    operationId: CreateSubscription
+    tags:
+      - subscription
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Subscription.yml#/Subscription"
+    responses:
+      $ref: ./responses.yml#/create_subscription

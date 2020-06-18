@@ -1,0 +1,33 @@
+get_subscriptions:
+  200:
+    description: "subscriptions fetched successfully"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            list:
+              type: array
+              description: "list of all the available subscriptions"
+              items:
+                $ref: "../shared/schemas/Subscription.yml#/Subscription"
+
+create_subscription:
+  200:
+    description: "subscription created"
+  400:
+      description: "invalid request data"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: "the error status"
+                example: "invalid request"
+              error:
+                type: string
+                description: "descriptive error message"
+                example: "subscription must have tags"
+
