@@ -15,6 +15,10 @@ get_subscriptions:
 create_subscription:
   200:
     description: "subscription created"
+    content:
+      application/json:
+        schema:
+          $ref: "../shared/schemas/Subscription.yml#/Subscription"
   400:
       description: "invalid request data"
       content:
@@ -24,10 +28,42 @@ create_subscription:
             properties:
               status:
                 type: string
-                description: "the error status"
+                description: "short error status"
                 example: "invalid request"
               error:
                 type: string
                 description: "descriptive error message"
                 example: "subscription must have tags"
+
+update_subscription:
+  200:
+    description: "subscription updated"
+    content:
+      application/json:
+        schema:
+          $ref: "../shared/schemas/Subscription.yml#/Subscription"
+  400:
+    description: "invalid request data"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: string
+              description: "short error status"
+              example: "invalid request"
+            error:
+              type: string
+              description: "descriptive error message"
+              example: "subscription must have tags"
+  404:
+    $ref: "../shared/responses/_index.yml#/NotFound"
+
+delete_subscription:
+  200:
+    description: "subscription deleted"
+  404:
+    $ref: "../shared/responses/_index.yml#/NotFound"
+
 

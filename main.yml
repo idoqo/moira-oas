@@ -43,6 +43,8 @@ paths:
     $ref: ./tag/methods.yml#/stats
   /subscription:
     $ref: ./subscription/methods.yml#/subscriptions
+  /subscription/{subscriptionId}:
+    $ref: ./subscription/methods.yml#/subscription
   /trigger:
     $ref: ./triggers/methods.yml
   /trigger/{triggerID}:

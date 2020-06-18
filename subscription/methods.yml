@@ -1,6 +1,6 @@
 subscriptions:
   get:
-    summary: "Get all subscriptions"
+    summary: "get all subscriptions"
     operationId: GetSubscriptions
     tags:
       - subscription
@@ -19,3 +19,30 @@ subscriptions:
             $ref: "../shared/schemas/Subscription.yml#/Subscription"
     responses:
       $ref: ./responses.yml#/create_subscription
+subscription:
+  put:
+    summary: "update a subscription"
+    operationId: UpdateSubscription
+    tags:
+      - subscription
+    parameters:
+      - $ref: "../shared/parameters/_index.yml#/subscriptionId"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Subscription.yml#/Subscription"
+    responses:
+      $ref: ./responses.yml#/update_subscription
+
+  delete:
+    summary: "deletes a subscription"
+    operationId: DeleteSubscription
+    tags:
+      - subscription
+    parameters:
+      - $ref: "../shared/parameters/_index.yml#/subscriptionId"
+    responses:
+      $ref: ./responses.yml#/delete_subscription
+

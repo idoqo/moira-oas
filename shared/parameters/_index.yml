@@ -44,6 +44,15 @@ size:
   description: "Number of items to be displayed on one page."
   example: 15
 
+subscriptionId:
+  in: path
+  name: subscriptionId
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "bcba82f5-48cf-44c0-b7d6-e1d32c64a88c"
+
 tag:
   in: path
   name: tag
