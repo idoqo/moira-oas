@@ -48,7 +48,7 @@ paths:
   /subscription/{subscriptionId}/test:
     $ref: ./subscription/methods.yml#/test
   /trigger:
-    $ref: ./triggers/methods.yml
+    $ref: ./trigger/methods.yml#/triggers
   /trigger/{triggerID}:
     $ref: ./trigger/methods.yml#/trigger
   /trigger/{triggerID}/render:
