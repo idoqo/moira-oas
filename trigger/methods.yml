@@ -1,3 +1,17 @@
+triggers:
+  put:
+    summary: "Create new trigger"
+    operationId: CreateTrigger
+    tags:
+      - triggers
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ./requests.yml#/create_trigger
+    responses:
+      $ref: ./responses.yml#/create_trigger
 trigger:
   put:
     summary: "Update existing trigger"
