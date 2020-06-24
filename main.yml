@@ -63,6 +63,8 @@ paths:
     $ref: ./trigger/methods.yml#/triggers
   /trigger/page:
     $ref: ./trigger/methods.yml#/page
+  /trigger/search:
+    $ref: ./trigger/methods.yml#/search
   /trigger/{triggerID}:
     $ref: ./trigger/methods.yml#/trigger
   /trigger/{triggerID}/render:

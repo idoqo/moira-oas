@@ -82,7 +82,22 @@ page:
     tags:
       - trigger
     parameters:
+      - $ref: ../shared/parameters/_index.yml#/onlyProblems
       - $ref: ../shared/parameters/_index.yml#/page
+      - $ref: ../shared/parameters/_index.yml#/text
     responses:
       $ref: ./responses.yml#/page_triggers
+
+search:
+  get:
+    summary: "Search triggers. Replaces the deprecated `page` path"
+    operationId: SearchTriggers
+    tags:
+      - trigger
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/onlyProblems
+      - $ref: ../shared/parameters/_index.yml#/page
+      - $ref: ../shared/parameters/_index.yml#/text
+    responses:
+      $ref: ./responses.yml#/search_triggers
 
