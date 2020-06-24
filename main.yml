@@ -61,6 +61,8 @@ paths:
     $ref: ./subscription/methods.yml#/test
   /trigger:
     $ref: ./trigger/methods.yml#/triggers
+  /trigger/page:
+    $ref: ./trigger/methods.yml#/page
   /trigger/{triggerID}:
     $ref: ./trigger/methods.yml#/trigger
   /trigger/{triggerID}/render:
