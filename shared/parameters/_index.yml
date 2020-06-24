@@ -17,6 +17,15 @@ from:
   description: The start period of metrics to get
   example: -1hour
 
+onlyProblems:
+  in: query
+  name: onlyProblems
+  required: false
+  schema:
+    type: boolean
+  description: Restricts the result to errors only
+  example: false
+
 page:
   in: query
   name: page
@@ -70,6 +79,15 @@ targetID:
     type: string
   description: The ID of updated target to print plot for
   example: t1
+
+text:
+  in: query
+  name: text
+  required: true
+  schema:
+    type: string
+  description: query to perform a search for
+  example: cpu
 
 to:
   in: query

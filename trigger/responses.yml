@@ -1,3 +1,34 @@
+get_triggers:
+  200:
+    description: "fetched all triggers"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            list:
+              type: array
+              description: "list of available triggers"
+              items:
+                $ref: "../shared/schemas/Trigger.yml#/Trigger"
+
+create_trigger:
+  200:
+    description: "Trigger created"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              example: trigger_id
+            message:
+              type: string
+              example: trigger created
+  400:
+    $ref: "../shared/responses/_index.yml#/BadRequest"
+
 put:
   200:
     description: "Trigger updated"
@@ -49,3 +80,55 @@ get_metrics:
               $ref: "../shared/schemas/MetricValue.yml#/MetricValue"
   500:
     $ref: "../shared/responses/_index.yml#/ServerError"
+
+page_triggers:
+  200:
+    description: "fetched matching triggers"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            page:
+              type: number
+              description: "current item page"
+              example: 0
+            size:
+              type: number
+              description: "number of triggers shown per page"
+              example: 10
+            total:
+              type: number
+              description: "total number of matching results"
+              example: 5
+            list:
+              type: array
+              description: "list of matching triggers"
+              items:
+                $ref: "../shared/schemas/Trigger.yml#/Trigger"
+
+search_triggers:
+  200:
+    description: "fetched matching triggers"
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            page:
+              type: number
+              description: "current item page"
+              example: 0
+            size:
+              type: number
+              description: "number of triggers shown per page"
+              example: 10
+            total:
+              type: number
+              description: "total number of matching results"
+              example: 5
+            list:
+              type: array
+              description: "list of matching triggers"
+              items:
+                $ref: "../shared/schemas/Trigger.yml#/Trigger"

@@ -7,11 +7,23 @@ info:
     name: "MIT"
 tags:
   - name: "config"
-    description: "Runtime configuration of the API"
-  - name: "triggers"
-    description: "Triggers Collection Methods"
+    description: "APIs for interacting with the Moira runtime configuration"
+  - name: "contact"
+    description: "APIs for working with Moira contacts"
+  - name: "event"
+    description: "APIs for interacting with notification events"
+  - name: "health"
+    description: "interact with Moira states/health status"
+  - name: "pattern"
+    description: "APIs for interacting with graphite patterns in Moira"
+  - name: "subscription"
+    description: "APIs for managing a user's subscription(s)"
+  - name: "tag"
+    description: "APIs for managing tags (a grouping of tags and subscriptions)"
   - name: "trigger"
-    description: "One Trigger Methods"
+    description: "APIs for interacting with Moira triggers"
+  - name: "user"
+    description: "APIs for interacting with on-disk Moira users"
 
 servers:
   - url: http://localhost:8080/api
@@ -48,7 +60,11 @@ paths:
   /subscription/{subscriptionId}/test:
     $ref: ./subscription/methods.yml#/test
   /trigger:
-    $ref: ./triggers/methods.yml
+    $ref: ./trigger/methods.yml#/triggers
+  /trigger/page:
+    $ref: ./trigger/methods.yml#/page
+  /trigger/search:
+    $ref: ./trigger/methods.yml#/search
   /trigger/{triggerID}:
     $ref: ./trigger/methods.yml#/trigger
   /trigger/{triggerID}/render:

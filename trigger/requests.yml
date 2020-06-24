@@ -1,2 +1,4 @@
+create_trigger:
+  $ref: "../shared/schemas/Trigger.yml#/Trigger"
 put:
   $ref: "../shared/schemas/Trigger.yml#/Trigger"

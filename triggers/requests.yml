@@ -1,2 +1,0 @@
-put:
-  $ref: "../shared/schemas/Trigger.yml#/Trigger"
