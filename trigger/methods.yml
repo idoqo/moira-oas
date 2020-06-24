@@ -3,7 +3,7 @@ triggers:
     summary: "Create new trigger"
     operationId: CreateTrigger
     tags:
-      - triggers
+      - trigger
     requestBody:
       required: true
       content:
