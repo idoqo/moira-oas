@@ -1,0 +1,25 @@
+name: pushspec
+
+on:
+  push:
+    branches:
+      - "releaser"
+
+jobs:
+  pushspec:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Merge spec files
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - run: npm install swagger-cli
+      - run: make spec
+
