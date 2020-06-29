@@ -7,6 +7,7 @@ on:
 
 jobs:
   pushspec:
+    name: Merge multiple spec files into one.
     runs-on: ubuntu-latest
 
     strategy:
