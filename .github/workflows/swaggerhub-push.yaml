@@ -3,7 +3,7 @@ name: pushspec
 on:
   push:
     branches:
-      - releaser
+      - master
 
 jobs:
   mergespec:
