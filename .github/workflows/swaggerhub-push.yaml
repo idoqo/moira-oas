@@ -6,8 +6,8 @@ on:
       - releaser
 
 jobs:
-  pushspec:
-    name: Merge multiple spec files into one.
+  mergespec:
+    name: Bundle spec files and validate it.
     runs-on: ubuntu-latest
 
     strategy:
@@ -15,12 +15,36 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Merge spec files
-        uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Bundle spec files
+        uses: actions/upload-artifact@v1
         with:
           node-version: ${{matrix.node-version}}
+        run: |
+          npm install -g swagger-cli && make spec
+        with:
+          node-version: ${{matrix.node-version}}
+          name: specfile
+          path: build/openapi.yml
+ 
+  pushspec:
+    name: Upload generated OpenAPI description
+    runs-on: ubuntu-latest
+    needs: mergespec
 
-      - run: npm install swagger-cli
-      - run: make spec
+    steps:
+      - name: Push spec file to swaggerhub
+        uses: actions/download-artifact@v1
+        with:
+          name: specfile
+        env:
+          AUTH_TOKEN: ${{secrets.SGH_TOKEN}}
+        run: |
+          version=3.11
+          def=`cat build/openapi.yml`
+          curl -d $definition "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version$version&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
+
+
 
