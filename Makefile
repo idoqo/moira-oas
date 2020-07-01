@@ -2,8 +2,6 @@ BUILD_DIR = build
 SPEC_FILE = $(BUILD_DIR)/openapi.yml
 CLIENTS_DIR = $(BUILD_DIR)/clients
 
-$(info $(shell mkdir -p $(BUILD_DIR)))
-
 spec:
 	swagger-cli bundle main.yml -o $(SPEC_FILE) -t yaml
 validate-spec:

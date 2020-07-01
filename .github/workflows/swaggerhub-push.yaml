@@ -15,8 +15,9 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - run: npm install -g swagger-cli
+      - run: make spec
 
       - name: Bundle spec files
         uses: actions/upload-artifact@v1
@@ -24,7 +25,6 @@ jobs:
           node-version: ${{matrix.node-version}}
           name: specfile
           path: build/openapi.yml
-      - run: npm install -g swagger-cli && make spec
  
   pushspec:
     name: Upload generated OpenAPI description
