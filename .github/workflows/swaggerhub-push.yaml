@@ -16,18 +16,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Bundle spec files
         uses: actions/upload-artifact@v1
         with:
           node-version: ${{matrix.node-version}}
-        run: |
-          npm install -g swagger-cli && make spec
-        with:
-          node-version: ${{matrix.node-version}}
           name: specfile
           path: build/openapi.yml
+      - run: npm install -g swagger-cli && make spec
  
   pushspec:
     name: Upload generated OpenAPI description
@@ -35,16 +32,18 @@ jobs:
     needs: mergespec
 
     steps:
-      - name: Push spec file to swaggerhub
+      - name: Download the spec file
         uses: actions/download-artifact@v1
         with:
           name: specfile
+      - name: Upload spec file to swaggerhub
         env:
           AUTH_TOKEN: ${{secrets.SGH_TOKEN}}
+        shell: bash
         run: |
           version=3.11
           def=`cat build/openapi.yml`
-          curl -d $definition "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version$version&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
+          curl -d "$definition" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version$version&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
 
 
 
