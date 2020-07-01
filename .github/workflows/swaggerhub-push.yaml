@@ -47,7 +47,7 @@ jobs:
         run: |
           version=3.11
           def=`cat build/openapi.yml`
-          curl -d "$definition" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version$version&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
+          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version$version&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
 
 
 
