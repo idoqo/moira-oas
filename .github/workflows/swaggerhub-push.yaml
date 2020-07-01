@@ -38,6 +38,11 @@ jobs:
     needs: mergespec
 
     steps:
+      - uses: actions/checkout@v2
+      - name: set output for versioning
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
       - name: Download the spec file
         uses: actions/download-artifact@v1
         with:
@@ -45,12 +50,12 @@ jobs:
       - name: Upload spec file to swaggerhub
         env:
           AUTH_TOKEN: ${{secrets.SGH_TOKEN}}
+          RELEASE_VERSION: ${{steps.vars.outputs.tag}}
         shell: bash
         run: |
-          version=`git describe --tags 2>/dev/null || git rev-parse --short HEAD`
-          
+          echo "Uploading OpenAPI spec v ${RELEASE_VERSION}"
           def=`cat build/openapi.yml`
-          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version=$version&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
+          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version=${RELEASE_VERSION}&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
 
 
 
