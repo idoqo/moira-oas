@@ -12,5 +12,7 @@ TagStatistics:
   $ref: "./TagStatistics.yml#/TagStatistics"
 Trigger:
   $ref: "./Trigger.yml#/Trigger"
+TriggerCheck:
+  $ref: "./TriggerCheck.yml#/TriggerCheck"
 NotifierState:
   $ref: "./NotifierState.yml#/NotifierState"
