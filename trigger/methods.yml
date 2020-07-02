@@ -101,3 +101,13 @@ search:
     responses:
       $ref: ./responses.yml#/search_triggers
 
+state:
+  get:
+    summary: "Get the trigger state as at last check"
+    operationId: GetTriggerState
+    tags:
+      - trigger
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/triggerID
+    responses:
+      $ref: ./responses.yml#/state/get

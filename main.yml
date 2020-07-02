@@ -71,6 +71,8 @@ paths:
     $ref: ./trigger/methods.yml#/render
   /trigger/{triggerID}/metrics:
     $ref: ./trigger/methods.yml#/metrics
+  /trigger/{triggerID}/state:
+    $ref: ./trigger/methods.yml#/state
   /user:
     $ref: ./user/methods.yml#/user
   /user/settings:

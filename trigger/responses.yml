@@ -132,3 +132,13 @@ search_triggers:
               description: "list of matching triggers"
               items:
                 $ref: "../shared/schemas/Trigger.yml#/Trigger"
+
+state:
+  get:
+    200:
+      description: "trigger state fetched successfully"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/TriggerCheck.yml#/TriggerCheck"
+
