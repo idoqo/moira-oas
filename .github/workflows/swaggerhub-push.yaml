@@ -54,7 +54,7 @@ jobs:
         run: |
           echo "Uploading OpenAPI spec v ${RELEASE_VERSION}"
           def=`cat build/openapi.yml`
-          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version=${RELEASE_VERSION}&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
+          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version=${RELEASE_VERSION}&oas=3.0.0&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
 
 
 
