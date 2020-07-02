@@ -25,7 +25,7 @@ NotFound:
             example: Resource not found
           error:
             type: string
-            example: trigger not found
+            example: "resource with ID '66741a8c-c2ba-4357-a2c9-ee78e0e7' does not exist"
 
 ServerError:
   description: "Server error"

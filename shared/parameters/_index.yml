@@ -17,6 +17,15 @@ from:
   description: The start period of metrics to get
   example: -1hour
 
+onlyProblems:
+  in: query
+  name: onlyProblems
+  required: false
+  schema:
+    type: boolean
+  description: Restricts the result to errors only
+  example: false
+
 page:
   in: query
   name: page
@@ -25,6 +34,15 @@ page:
     type: integer
   description: "Defines the number of the displayed page. E.g, page=2 would display the 2nd page."
   example: 1
+
+pattern:
+  in: path
+  name: pattern
+  required: true
+  schema:
+    type: string
+  example: "DevOps.my_server.hdd.freespace_mbytes"
+  description: "Trigger pattern to operate on."
 
 size:
   in: query
@@ -35,6 +53,24 @@ size:
   description: "Number of items to be displayed on one page."
   example: 15
 
+subscriptionId:
+  in: path
+  name: subscriptionId
+  required: true
+  schema:
+    type: string
+    format: uuid
+  example: "bcba82f5-48cf-44c0-b7d6-e1d32c64a88c"
+
+tag:
+  in: path
+  name: tag
+  required: true
+  schema:
+    type: string
+  description: "name of the tag"
+  example: "cpu"
+
 targetID:
   in: query
   name: targetID
@@ -43,6 +79,15 @@ targetID:
     type: string
   description: The ID of updated target to print plot for
   example: t1
+
+text:
+  in: query
+  name: text
+  required: true
+  schema:
+    type: string
+  description: query to perform a search for
+  example: cpu
 
 to:
   in: query
@@ -62,12 +107,4 @@ triggerID:
     format: uuid
   description: The ID of updated trigger
   example: 5A8AF369-86D2-44DD-B514-D47995ED6AF7
-  
-pattern:
-  in: path
-  name: pattern
-  required: true
-  schema:
-    type: string
-  example: "DevOps.my_server.hdd.freespace_mbytes"
-  description: "Trigger pattern to operate on."
+

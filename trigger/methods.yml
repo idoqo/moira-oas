@@ -1,3 +1,26 @@
+triggers:
+  get:
+    summary: "get all triggers"
+    operationId: GetTriggers
+    tags:
+      - trigger
+    responses:
+      $ref: ./responses.yml#/get_triggers
+
+  put:
+    summary: "create new trigger"
+    operationId: CreateTrigger
+    tags:
+      - trigger
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: ./requests.yml#/create_trigger
+    responses:
+      $ref: ./responses.yml#/create_trigger
+
 trigger:
   put:
     summary: "Update existing trigger"
@@ -23,6 +46,7 @@ trigger:
       - $ref: ../shared/parameters/_index.yml#/triggerID
     responses:
       $ref: ./responses.yml#/get
+
 render:
   get:
     summary: "Get rendered plot for trigger"
@@ -36,6 +60,7 @@ render:
       - $ref: ../shared/parameters/_index.yml#/to
     responses:
       $ref: ./responses.yml#/get_render
+
 metrics:
   get:
     summary: "Get metrics associated with certain trigger"
@@ -48,3 +73,31 @@ metrics:
       - $ref: ../shared/parameters/_index.yml#/to
     responses:
       $ref: ./responses.yml#/get_metrics
+
+page:
+  get:
+    summary: "Search triggers. Deprecated, use the `search` endpoint instead"
+    deprecated: true
+    operationId: SearchTriggersPage
+    tags:
+      - trigger
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/onlyProblems
+      - $ref: ../shared/parameters/_index.yml#/page
+      - $ref: ../shared/parameters/_index.yml#/text
+    responses:
+      $ref: ./responses.yml#/page_triggers
+
+search:
+  get:
+    summary: "Search triggers. Replaces the deprecated `page` path"
+    operationId: SearchTriggers
+    tags:
+      - trigger
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/onlyProblems
+      - $ref: ../shared/parameters/_index.yml#/page
+      - $ref: ../shared/parameters/_index.yml#/text
+    responses:
+      $ref: ./responses.yml#/search_triggers
+
