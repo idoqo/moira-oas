@@ -37,6 +37,7 @@ trigger:
             $ref: "../shared/schemas/Trigger.yml#/Trigger"
     responses:
       $ref: responses.yml#/put
+
   get:
     summary: "Get an existing trigger"
     operationId: GetTrigger
@@ -46,6 +47,16 @@ trigger:
       - $ref: ../shared/parameters/_index.yml#/triggerID
     responses:
       $ref: ./responses.yml#/get
+
+  delete:
+    summary: "remove a trigger"
+    operationId: DeleteTrigger
+    tags:
+      - trigger
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/triggerID
+    responses:
+      $ref: ./responses.yml#/trigger/delete
 
 render:
   get:

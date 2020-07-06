@@ -67,6 +67,11 @@ get_render:
   500:
     $ref: "../shared/responses/_index.yml#/ServerError"
 
+trigger:
+  delete:
+    200:
+      description: "Trigger has been deleted"
+
 get_metrics:
   200:
     description: "Metrics for trigger"
