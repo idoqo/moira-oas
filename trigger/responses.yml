@@ -1,60 +1,34 @@
-get_triggers:
-  200:
-    description: "fetched all triggers"
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            list:
-              type: array
-              description: "list of available triggers"
-              items:
-                $ref: "../shared/schemas/Trigger.yml#/Trigger"
+triggers:
+  get_triggers:
+    200:
+      description: "fetched all triggers"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              list:
+                type: array
+                description: "list of available triggers"
+                items:
+                  $ref: "../shared/schemas/Trigger.yml#/Trigger"
 
-create_trigger:
-  200:
-    description: "Trigger created"
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            id:
-              type: string
-              example: trigger_id
-            message:
-              type: string
-              example: trigger created
-  400:
-    $ref: "../shared/responses/_index.yml#/BadRequest"
-
-put:
-  200:
-    description: "Trigger updated"
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            id:
-              type: string
-              example: trigger_id
-            message:
-              type: string
-              example: trigger created
-  400:
-    $ref: "../shared/responses/_index.yml#/BadRequest"
-
-get:
-  200:
-    description: "Trigger data"
-    content:
-      application/json:
-        schema:
-          $ref: "../shared/schemas/Trigger.yml#/Trigger"
-  404:
-    $ref: "../shared/responses/_index.yml#/NotFound"
+  create_trigger:
+    200:
+      description: "Trigger created"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                example: trigger_id
+              message:
+                type: string
+                example: trigger created
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
 
 get_render:
   200:
@@ -67,19 +41,62 @@ get_render:
   500:
     $ref: "../shared/responses/_index.yml#/ServerError"
 
-get_metrics:
-  200:
-    description: "Metrics for trigger"
-    content:
-      application/json:
-        schema:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: "../shared/schemas/MetricValue.yml#/MetricValue"
-  500:
-    $ref: "../shared/responses/_index.yml#/ServerError"
+trigger:
+  delete:
+    200:
+      description: "Trigger has been deleted"
+
+  put:
+    200:
+      description: "Trigger updated"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                example: trigger_id
+              message:
+                type: string
+                example: trigger created
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
+
+  get:
+    200:
+      description: "Trigger data"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Trigger.yml#/Trigger"
+    404:
+      $ref: "../shared/responses/_index.yml#/NotFound"
+
+
+
+metrics:
+  delete_metric:
+    200:
+      description: "Trigger metric has been deleted"
+  get_metrics:
+    200:
+      description: "Metrics for trigger"
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: "../shared/schemas/MetricValue.yml#/MetricValue"
+    500:
+      $ref: "../shared/responses/_index.yml#/ServerError"
+
+metrics_nodata:
+   delete:
+     200:
+       description: "NODATA metrics have been deleted"
 
 page_triggers:
   200:
@@ -142,3 +159,31 @@ state:
           schema:
             $ref: "../shared/schemas/TriggerCheck.yml#/TriggerCheck"
 
+setMaintenance:
+  put:
+    200:
+      description: "trigger or metric have been scheduled for maintenance"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
+
+throttling:
+  get:
+    200:
+      description: "trigger throttle info retrieved"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              throttling:
+                type: integer
+                description: "unix timestamp to show next allowed time, defaults to 0"
+                example: 0
+    404:
+      $ref: "../shared/responses/_index.yml#/NotFound"
+
+  delete:
+    200:
+      description: "trigger throttling has been deleted"
+    404:
+      $ref: "../shared/responses/_index.yml#/NotFound"
