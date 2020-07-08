@@ -17,6 +17,15 @@ from:
   description: The start period of metrics to get
   example: -1hour
 
+metricName:
+  in: query
+  name: name
+  required: true
+  schema:
+    type: string
+  description: Name of the target metric
+  example: "DevOps.my_server.hdd.freespace_mbytes"
+
 onlyProblems:
   in: query
   name: onlyProblems
