@@ -77,6 +77,8 @@ paths:
     $ref: ./trigger/methods.yml#/setMaintenance
   /trigger/{triggerID}/state:
     $ref: ./trigger/methods.yml#/state
+  /trigger/{triggerID}/throttling:
+    $ref: ./trigger/methods.yml#/throttling
   /user:
     $ref: ./user/methods.yml#/user
   /user/settings:

@@ -165,3 +165,25 @@ state:
       - $ref: ../shared/parameters/_index.yml#/triggerID
     responses:
       $ref: ./responses.yml#/state/get
+
+throttling:
+  get:
+    summary: "Get a trigger with its throttling i.e its next allowed message time"
+    operationId: GetTriggerThrottling
+    tags:
+      - trigger
+      - throttling
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/triggerID
+    responses:
+      $ref: ./responses.yml#/throttling/get
+  delete:
+    summary: "Deletes throttling for a trigger"
+    operationId: DeleteTriggerThrottling
+    tags:
+      - trigger
+      - throttling
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/triggerID
+    responses:
+      $ref: ./responses.yml#/throttling/delete
