@@ -1,0 +1,8 @@
+notifications:
+  get:
+    summary: "gets a paginated list of notifications, all notifications are fetched if end = -1 and start = 0"
+    operationId: GetNotifications
+    tags:
+      - notifications
+    responses:
+      $ref: ./responses.yml#/notifications/get

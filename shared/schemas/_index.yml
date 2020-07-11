@@ -14,5 +14,7 @@ Trigger:
   $ref: "./Trigger.yml#/Trigger"
 TriggerCheck:
   $ref: "./TriggerCheck.yml#/TriggerCheck"
+NotificationsList:
+  $ref: "./NotificationsList.yml#/NotificationsList"
 NotifierState:
   $ref: "./NotifierState.yml#/NotifierState"
