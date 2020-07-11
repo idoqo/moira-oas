@@ -1,0 +1,8 @@
+notifications:
+  get:
+    200:
+      description: "Notifications fetched successfully"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/NotificationsList.yml#/NotificationsList"
