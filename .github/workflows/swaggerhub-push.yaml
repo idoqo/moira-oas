@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - v[0-9]*
+      - v[0-9]+.[0-9]+.[0-9]+
       - feature/*
 
 jobs:
@@ -57,7 +57,7 @@ jobs:
           version=`echo $version|sed 's#[^a-zA-Z0-9_\.\-]#_#g'`
           echo "Uploading OpenAPI spec v ${RELEASE_VERSION}"
           def=`cat build/openapi.yml`
-          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version=${version}&oas=3.0.0&force=false" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
+          curl -d "$def" "https://api.swaggerhub.com/apis/idoko/moira-alert/?isPrivate=false&version=${version}&oas=3.0.0&force=true" -H "content-type: application/yaml" -H "Authorization: ${AUTH_TOKEN}"
 
 
 
