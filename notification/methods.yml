@@ -4,5 +4,27 @@ notifications:
     operationId: GetNotifications
     tags:
       - notifications
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/start
+      - $ref: ../shared/parameters/_index.yml#/end
     responses:
       $ref: ./responses.yml#/notifications/get
+
+  delete:
+    summary: "delete a notification by id"
+    operationId: DeleteNotification
+    tags:
+      - notifications
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/notificationId
+    responses:
+      $ref: ./responses.yml#/notifications/delete
+
+all:
+  delete:
+   summary: "deletes all available notifications"
+   operationId: DeleteAllNotification
+   tags:
+     - notifications
+   responses:
+     $ref: ./responses.yml#/all/delete

@@ -47,6 +47,8 @@ paths:
     $ref: ./health/methods.yml#/notifier
   /notification:
     $ref: ./notification/methods.yml#/notifications
+  /notification/all:
+    $ref: ./notification/methods.yml#/all
   /pattern:
     $ref: ./pattern/methods.yml#/patterns
   /pattern/{pattern}:
