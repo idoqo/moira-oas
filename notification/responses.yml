@@ -6,3 +6,8 @@ notifications:
         application/json:
           schema:
             $ref: "../shared/schemas/NotificationsList.yml#/NotificationsList"
+
+all:
+  delete:
+    200:
+      description: "all notificiations have been deleted"

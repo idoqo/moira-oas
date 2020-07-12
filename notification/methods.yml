@@ -6,3 +6,12 @@ notifications:
       - notifications
     responses:
       $ref: ./responses.yml#/notifications/get
+
+all:
+  delete:
+   summary: "deletes all available notifications"
+   operationId: DeleteAllNotification
+   tags:
+     - notifications
+   responses:
+     $ref: ./responses.yml#/all/delete
