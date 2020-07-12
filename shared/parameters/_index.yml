@@ -26,6 +26,16 @@ metricName:
   description: Name of the target metric
   example: "DevOps.my_server.hdd.freespace_mbytes"
 
+notificationId:
+  in: query
+  name: notificationId
+  required: true
+  schema:
+    type: string
+    format: uuid
+  description: The ID of updated trigger
+  example: 5A8AF369-86D2-44DD-B514-D47995ED6AF7
+
 onlyProblems:
   in: query
   name: onlyProblems
