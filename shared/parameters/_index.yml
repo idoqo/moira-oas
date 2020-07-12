@@ -62,6 +62,24 @@ size:
   description: "Number of items to be displayed on one page."
   example: 15
 
+start:
+  in: query
+  name: start
+  required: false
+  schema:
+    type: integer
+    default: 0
+  example: 1
+
+end:
+  in: query
+  name: end
+  required: false
+  schema:
+    type: integer
+    default: -1
+  example: 15
+
 subscriptionId:
   in: path
   name: subscriptionId

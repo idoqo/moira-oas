@@ -4,6 +4,9 @@ notifications:
     operationId: GetNotifications
     tags:
       - notifications
+    parameters:
+      - $ref: ../shared/parameters/_index.yml#/start
+      - $ref: ../shared/parameters/_index.yml#/end
     responses:
       $ref: ./responses.yml#/notifications/get
 
