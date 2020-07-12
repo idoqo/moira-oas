@@ -1,7 +1,10 @@
 name: deletespec
 
 on:
-  [delete]
+  delete:
+    - v[0-9]+.[0-9]+.[0-9]+
+    - feature/*
+
 jobs:
   removespec:
     name: Remove the corresponding spec from SwaggerHub
