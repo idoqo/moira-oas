@@ -24,7 +24,3 @@ get:
                     type: string
                     description: Human readable label of the contact
                     example: Telegram
-                  help:
-                    type: string
-                    description: Help text relevant to the contact type
-                    example: "@MoiraBot requires admin privileges on your target channel."
