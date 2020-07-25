@@ -16,9 +16,10 @@ new_contact:
   200:
     description: "Contact created successfully."
     content:
-      applicaton/json:
+      application/json:
         schema:
           $ref: "../shared/schemas/Contact.yml#/Contact"
+
   400:
     $ref: "../shared/responses/_index.yml#/BadRequest"
 
@@ -31,11 +32,21 @@ update_contact:
           $ref: "../shared/schemas/Contact.yml#/Contact"
   400:
     $ref: "../shared/responses/_index.yml#/BadRequest"
+  404:
+    $ref: "../shared/responses/_index.yml#/NotFound"
 
 delete_contact:
   200:
     description: "Contact has been deleted"
+  400:
+    $ref: "../shared/responses/_index.yml#/BadRequest"
+  404:
+    $ref: "../shared/responses/_index.yml#/NotFound"
 
 test_contact_notification:
   200:
     description: "Test successful."
+  400:
+    $ref: "../shared/responses/_index.yml#/BadRequest"
+  404:
+    $ref: "../shared/responses/_index.yml#/NotFound"

@@ -1,3 +1,6 @@
+# generated openapi spec
 build/openapi.yml
-build/hooks
+# VCR file for the requests/responses used in the tests
+build/cassette.yml
+
 .vscode
