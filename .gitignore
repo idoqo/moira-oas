@@ -2,5 +2,6 @@
 build/openapi.yml
 # VCR file for the requests/responses used in the tests
 build/cassette.yml
-
+# hypothesis cache folder
+.hypothesis
 .vscode
