@@ -17,7 +17,7 @@ jobs:
 
       - name: Get the tag to use
         id: vars
-        run: echo ::set-output name=tag::$(echo {GITHUB_REF:10})
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
       - name: build docker image
         run: docker build . --file Dockerfile --tag idoko/moira-oas:${{steps.vars.outputs.tag}}
