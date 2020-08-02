@@ -17,16 +17,17 @@ notifier:
       content:
         application/json:
           schema:
-            $ref: "../shared/schemas/NotifierState.yml#/NotifierState"
+            $ref: ./requests.yml#/update_notifier_state
           examples:
-            error:
-              description: "Put the service in an ERROR state"
-              value:
-                state: "ERROR"
-                message: "Moira has been turned off for maintenance"
             ok:
-              description: "Put the service in an OK state"
+              summary: "change the notifier state to OK"
               value:
                 state: "OK"
+                message: ""
+            error:
+              summary: "put the notifier service in an ERROR state"
+              value:
+                state: "ERROR"
+                message: "Turned off for maintenance"
     responses:
       $ref: ./responses.yml#/update_notifier

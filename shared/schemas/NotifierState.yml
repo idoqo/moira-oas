@@ -3,10 +3,8 @@ NotifierState:
   properties:
     state:
       type: string
-      description: "value for OK state"
+      description: "New state of the notifier service. Should be either OK or ERROR"
+      example: "OK"
     message:
       type: string
-      description: "Detailed description of the current state. This field is non-existent if the state is OK"
-  example:
-    error:
-      state: "OK"
+      description: "Optional description for the state change"

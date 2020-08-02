@@ -41,7 +41,7 @@ get_tags_subscriptions:
           type: object
           properties:
             list:
+              type: array
+              description: "list of available Moira tags, their triggers and their subscriptions"
               items:
-                type: array
-                items:
-                  $ref: "../shared/schemas/TagStatistics.yml#/TagStatistics"
+                $ref: "../shared/schemas/TagStatistics.yml#/TagStatistics"

@@ -39,7 +39,6 @@ Trigger:
       type: boolean
     throttling:
       type: integer
-  additionalProperties: false
 
 definitions:
   ScheduleData:
@@ -54,7 +53,6 @@ definitions:
         type: integer
       endOffset:
         type: integer
-    additionalProperties: false
     type: object
   ScheduleDataDay:
     properties:
@@ -62,5 +60,4 @@ definitions:
         type: boolean
       name:
         type: string
-    additionalProperties: false
     type: object
