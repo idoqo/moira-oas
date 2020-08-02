@@ -1,7 +1,4 @@
-# generated openapi spec
-build/openapi.yml
-# VCR file for the requests/responses used in the tests
-build/cassette.yml
+build/
 # hypothesis cache folder
 .hypothesis
 .vscode
