@@ -28,7 +28,17 @@ triggers:
                 type: string
                 example: trigger created
     400:
-      $ref: "../shared/responses/_index.yml#/BadRequest"
+      description: "Failed to create trigger due to invalid request body"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+          examples:
+            targetRequired:
+              description: "no value passed for 'target' field"
+              value:
+                status: "Invalid request"
+                error: "targets is required"
 
 get_render:
   200:
@@ -45,6 +55,18 @@ trigger:
   delete:
     200:
       description: "Trigger has been deleted"
+    400:
+      description: "Trigger not found"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+          examples:
+            triggerNotFound:
+              description: "no trigger with the ID was found"
+              value:
+                status: "Invalid request"
+                error: "trigger not found"
 
   put:
     200:
@@ -79,6 +101,19 @@ metrics:
   delete_metric:
     200:
       description: "Trigger metric has been deleted"
+    400:
+      description: "Trigger not found"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+          examples:
+            triggerNotFound:
+              description: "no trigger with the ID was found"
+              value:
+                status: "Invalid request"
+                error: "trigger not found"
+
   get_metrics:
     200:
       description: "Metrics for trigger"
@@ -90,6 +125,18 @@ metrics:
               type: array
               items:
                 $ref: "../shared/schemas/MetricValue.yml#/MetricValue"
+    400:
+      description: "Trigger not found"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+          examples:
+            triggerNotFound:
+              description: "no trigger with the ID was found"
+              value:
+                status: "Invalid request"
+                error: "trigger not found"
     500:
       $ref: "../shared/responses/_index.yml#/ServerError"
 

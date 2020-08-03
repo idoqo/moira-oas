@@ -1,0 +1,9 @@
+ErrorBadRequest:
+  type: object
+  properties:
+    status:
+      description: "The corresponding error status"
+      type: string
+    error:
+      type: string
+      description: "Message telling why the error occurred"
