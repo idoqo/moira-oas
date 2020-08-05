@@ -70,7 +70,7 @@ render:
       - $ref: ../shared/parameters/_index.yml#/from
       - $ref: ../shared/parameters/_index.yml#/to
     responses:
-      $ref: ./responses.yml#/get_render
+      $ref: ./responses.yml#/render/get
 
 setMaintenance:
   put:

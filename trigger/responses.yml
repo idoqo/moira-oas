@@ -40,16 +40,17 @@ triggers:
                 status: "Invalid request"
                 error: "targets is required"
 
-get_render:
-  200:
-    description: "Plot for trigger"
-    content:
-      image/png:
-        schema:
-          type: string
-          format: binary
-  500:
-    $ref: "../shared/responses/_index.yml#/ServerError"
+render:
+  get:
+    200:
+      description: "Plot for trigger"
+      content:
+        image/png:
+          schema:
+            type: string
+            format: binary
+    500:
+      $ref: "../shared/responses/_index.yml#/ServerError"
 
 trigger:
   delete:
