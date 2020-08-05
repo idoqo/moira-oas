@@ -20,7 +20,7 @@ create_subscription:
         schema:
           $ref: "../shared/schemas/Subscription.yml#/Subscription"
   400:
-    description: "invalid request data"
+    description: "Invalid request data"
     content:
       application/json:
         schema:
@@ -31,6 +31,9 @@ create_subscription:
             value:
               status: "Invalid request"
               message: "subscription must have tags"
+      text/html:
+        schema:
+          type: string
 
 update_subscription:
   200:
@@ -56,7 +59,9 @@ update_subscription:
             value:
               status: "Invalid request"
               message: "subscription with ID '00' does not exist"
-
+      text/html:
+        schema:
+          type: string
   404:
     $ref: "../shared/responses/_index.yml#/NotFound"
 

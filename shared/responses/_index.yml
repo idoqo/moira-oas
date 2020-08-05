@@ -12,6 +12,9 @@ BadRequest:
           value:
             status: "invalid request"
             error: "resource with the ID does not exist"
+    text/html:
+      schema:
+        type: string
 
 NotFound:
   description: "Trigger not found"

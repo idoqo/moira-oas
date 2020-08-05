@@ -17,20 +17,20 @@ delete_tag:
   200:
     description: "Tag has been deleted"
   400:
-    description: "could not delete the tag due to a bad request"
+    description: "Could not delete tag"
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            status:
-              type: string
-              description: "the error status"
-              example: "invalid request"
-            error:
-              type: string
-              description: "more descriptive error message"
-              example: "this tag is assigned to 1 triggers. Remove tag from triggers first"
+          $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+        examples:
+          tagInUse:
+            description: "no trigger with the ID was found"
+            value:
+              status: "Invalid request"
+              error: "this tag is assigned to 1 triggers. Remove tag from triggers first"
+      text/html:
+        schema:
+          type: string
 
 get_tags_subscriptions:
   200:
