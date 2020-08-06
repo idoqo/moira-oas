@@ -41,7 +41,7 @@ paths:
     $ref: ./contact/methods.yml#/testContact
   /event/all:
     $ref: ./event/methods.yml#/events
-  /event/{triggerId}:
+  /event/{triggerID}:
     $ref: ./event/methods.yml#/eventForTrigger
   /health/notifier:
     $ref: ./health/methods.yml#/notifier

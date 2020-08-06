@@ -7,4 +7,3 @@ MetricValue:
       type: integer
     value:
       type: number
-  additionalProperties: false

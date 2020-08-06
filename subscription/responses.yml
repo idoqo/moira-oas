@@ -20,20 +20,20 @@ create_subscription:
         schema:
           $ref: "../shared/schemas/Subscription.yml#/Subscription"
   400:
-      description: "invalid request data"
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: string
-                description: "short error status"
-                example: "invalid request"
-              error:
-                type: string
-                description: "descriptive error message"
-                example: "subscription must have tags"
+    description: "Invalid request data"
+    content:
+      application/json:
+        schema:
+          $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+        examples:
+          missingField:
+            description: "a required field isn't in the request body"
+            value:
+              status: "Invalid request"
+              message: "subscription must have tags"
+      text/html:
+        schema:
+          type: string
 
 update_subscription:
   200:
@@ -47,22 +47,29 @@ update_subscription:
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            status:
-              type: string
-              description: "short error status"
-              example: "invalid request"
-            error:
-              type: string
-              description: "descriptive error message"
-              example: "subscription must have tags"
+          $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+        examples:
+          missingField:
+            description: "a required field isn't in the request body"
+            value:
+              status: "Invalid request"
+              message: "subscription must have tags"
+          subscriptionNotFound:
+            description: "no subscription with the given ID was found"
+            value:
+              status: "Invalid request"
+              message: "subscription with ID '00' does not exist"
+      text/html:
+        schema:
+          type: string
   404:
     $ref: "../shared/responses/_index.yml#/NotFound"
 
 delete_subscription:
   200:
     description: "subscription deleted"
+  400:
+    $ref: "../shared/responses/_index.yml#/BadRequest"
   404:
     $ref: "../shared/responses/_index.yml#/NotFound"
 

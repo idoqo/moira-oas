@@ -7,13 +7,12 @@ TagStatistics:
       example: "cpu"
     triggers:
       description: "array of trigger IDs that have this tag"
+      type: array
       items:
         type: string
         example: "bcba82f5-48cf-44c0-b7d6-e1d32c64a88c"
-      type: array
     subscriptions:
+      type: array
       description: "subscriptions for this tag"
       items:
         "$ref": "./Subscription.yml#/Subscription"
-      type: array
-  additionalProperties: false

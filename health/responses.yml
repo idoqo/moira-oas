@@ -5,6 +5,17 @@ get_notifier:
       application/json:
         schema:
           $ref: "../shared/schemas/NotifierState.yml#/NotifierState"
+        examples:
+          error:
+            description: "Put the service in an ERROR state"
+            value:
+              state: "ERROR"
+              message: "Moira has been turned off for maintenance"
+          ok:
+            description: "Put the service in an OK state"
+            value:
+              state: "OK"
+              description: ""
 
 update_notifier:
   200:
@@ -13,3 +24,16 @@ update_notifier:
       application/json:
         schema:
           $ref: "../shared/schemas/NotifierState.yml#/NotifierState"
+        examples:
+          error:
+            description: "Put the service in an ERROR state"
+            value:
+              state: "ERROR"
+              message: "Moira has been turned off for maintenance"
+          ok:
+            description: "Put the service in an OK state"
+            value:
+              state: "OK"
+              description: ""
+  400:
+    $ref: "../shared/responses/_index.yml#/BadRequest"

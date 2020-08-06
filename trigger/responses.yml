@@ -28,23 +28,38 @@ triggers:
                 type: string
                 example: trigger created
     400:
-      $ref: "../shared/responses/_index.yml#/BadRequest"
+      description: "Failed to create trigger due to invalid request body"
+      content:
+        application/json:
+          schema:
+            $ref: "../shared/schemas/Errors.yml#/ErrorBadRequest"
+          examples:
+            targetRequired:
+              description: "no value passed for 'target' field"
+              value:
+                status: "Invalid request"
+                error: "targets is required"
 
-get_render:
-  200:
-    description: "Plot for trigger"
-    content:
-      image/png:
-        schema:
-          type: string
-          format: binary
-  500:
-    $ref: "../shared/responses/_index.yml#/ServerError"
+render:
+  get:
+    200:
+      description: "Plot for trigger"
+      content:
+        image/png:
+          schema:
+            type: string
+            format: binary
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
+    500:
+      $ref: "../shared/responses/_index.yml#/ServerError"
 
 trigger:
   delete:
     200:
       description: "Trigger has been deleted"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
 
   put:
     200:
@@ -70,15 +85,18 @@ trigger:
         application/json:
           schema:
             $ref: "../shared/schemas/Trigger.yml#/Trigger"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
     404:
       $ref: "../shared/responses/_index.yml#/NotFound"
-
-
 
 metrics:
   delete_metric:
     200:
       description: "Trigger metric has been deleted"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
+
   get_metrics:
     200:
       description: "Metrics for trigger"
@@ -90,6 +108,8 @@ metrics:
               type: array
               items:
                 $ref: "../shared/schemas/MetricValue.yml#/MetricValue"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
     500:
       $ref: "../shared/responses/_index.yml#/ServerError"
 
@@ -97,6 +117,8 @@ metrics_nodata:
    delete:
      200:
        description: "NODATA metrics have been deleted"
+     400:
+       $ref: "../shared/responses/_index.yml#/BadRequest"
 
 page_triggers:
   200:
@@ -158,6 +180,8 @@ state:
         application/json:
           schema:
             $ref: "../shared/schemas/TriggerCheck.yml#/TriggerCheck"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
 
 setMaintenance:
   put:
@@ -179,6 +203,8 @@ throttling:
                 type: integer
                 description: "unix timestamp to show next allowed time, defaults to 0"
                 example: 0
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"
     404:
       $ref: "../shared/responses/_index.yml#/NotFound"
 
@@ -187,3 +213,5 @@ throttling:
       description: "trigger throttling has been deleted"
     404:
       $ref: "../shared/responses/_index.yml#/NotFound"
+    400:
+      $ref: "../shared/responses/_index.yml#/BadRequest"

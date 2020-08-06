@@ -1,3 +1,4 @@
-build/openapi.yml
-build/hooks
+build/
+# hypothesis cache folder
+.hypothesis
 .vscode
