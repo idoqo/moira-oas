@@ -11,7 +11,7 @@ validate-spec:
 	openapi-generator validate -i $(SPEC_FILE)
 
 test-spec:
-	schemathesis run --base-url=$(API_URL) $(SPEC_FILE) -c $(checks) --hypothesis-max-examples 5 --store-network-log $(NETWORK_LOG)
+	schemathesis run --base-url=$(API_URL) $(SPEC_FILE) -c $(checks) --hypothesis-max-examples 3 --store-network-log $(NETWORK_LOG)
 
 generate-py:
 	openapi-generator generate -g python -i $(SPEC_FILE) -o $(CLIENTS_DIR)/python

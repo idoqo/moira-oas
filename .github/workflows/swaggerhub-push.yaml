@@ -1,4 +1,4 @@
-name: pushspec
+name: Publish spec to SwaggerHub
 
 on:
   push:
@@ -31,6 +31,31 @@ jobs:
           node-version: ${{matrix.node-version}}
           name: build
           path: build/openapi.yml
+
+  # this expects that the branch name on this repo is same as the branch name
+  # on github.com/moira-alert/moira repository
+  testspec:
+    name: Test generated spec against the Moira API
+    runs-on: ubuntu-latest
+    needs: mergespec
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: moira-alert/moira
+          # todo: fix this to use the branch that triggered the build
+          # ref: refs/head/master
+      - name: set up docker services
+        run: docker-compose up -d
+
+      - name: download spec file artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: build
+
+      - name: run tests with schemathesis
+        run: make test-spec
+
  
   pushspec:
     name: Upload generated OpenAPI description
@@ -43,7 +68,7 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
-      - name: Download the spec file
+      - name: Download spec file artifact
         uses: actions/download-artifact@v1
         with:
           name: build
