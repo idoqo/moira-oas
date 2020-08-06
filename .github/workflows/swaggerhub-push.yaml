@@ -57,7 +57,7 @@ jobs:
 
       - name: install schemathesis and run tests
         run: |
-          pip install schemathesis
+          pip3 -vvv install schemathesis
           make test-spec
  
   pushspec:
