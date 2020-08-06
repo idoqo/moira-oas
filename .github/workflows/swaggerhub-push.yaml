@@ -48,14 +48,17 @@ jobs:
       - name: set up docker services
         run: docker-compose up -d
 
+      # Checkout again else we will really be working on moira-alert/moira
+      - uses: actions/checkout@v2
       - name: download spec file artifact
         uses: actions/download-artifact@v1
         with:
           name: build
 
-      - name: run tests with schemathesis
-        run: make test-spec
-
+      - name: install schemathesis and run tests
+        run: |
+          pip install schemathesis
+          make test-spec
  
   pushspec:
     name: Upload generated OpenAPI description
