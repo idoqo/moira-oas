@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [12.x]
+        node: [12]
 
     steps:
       - uses: actions/checkout@v2
@@ -38,6 +38,9 @@ jobs:
     name: Test generated spec against the Moira API
     runs-on: ubuntu-latest
     needs: mergespec
+    strategy:
+      matrix:
+        python-version: [3.8]
 
     steps:
       - uses: actions/checkout@v2
@@ -45,19 +48,27 @@ jobs:
           repository: moira-alert/moira
           # todo: fix this to use the branch that triggered the build
           # ref: refs/head/master
-      - name: set up docker services
+      - name: Set up docker services
         run: docker-compose up -d
 
       # Checkout again else we will really be working on moira-alert/moira
       - uses: actions/checkout@v2
-      - name: download spec file artifact
+
+      - name: Download spec file artifact
         uses: actions/download-artifact@v1
         with:
           name: build
 
-      - name: install schemathesis and run tests
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+
+      - name: Install schemathesis and run tests
         run: |
-          pip3 -vvv install schemathesis
+          python -m pip install --upgrade pip
+          pip -vvv install schemathesis
           make test-spec
  
   pushspec:
