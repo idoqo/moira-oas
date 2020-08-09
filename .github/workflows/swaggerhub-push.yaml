@@ -45,7 +45,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: moira-alert/moira
-      - run: pwd
       - run: ls -R
       - name: Set up docker services
         run: docker-compose up -d
