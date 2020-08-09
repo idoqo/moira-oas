@@ -1,5 +1,8 @@
 name: deletespec
-
+defaults:
+  run:
+    working-directory: openapi
+    
 on:
   [delete]
 
