@@ -1,6 +1,9 @@
 name: Publish spec version to SwaggerHub
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
@@ -82,9 +85,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: set output for versioning
-        id: vars
-        run: echo ::set-output name=tag::"${GITHUB_REF#refs/*/}"
+      - name: Extract branch name on push
+        if: github.event_name != 'pull_request'
+        id: extract_branch_name
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+
+      - name: Extract branch name on PR
+        if: github.event_name == 'pull_request'
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
 
       - run: mkdir build/
       - name: Download spec file artifact
@@ -96,10 +104,9 @@ jobs:
       - name: Upload spec file to swaggerhub
         env:
           AUTH_TOKEN: ${{secrets.SGH_TOKEN}}
-          RELEASE_VERSION: ${{steps.vars.outputs.tag}}
         shell: bash
         run: |
-          version=${RELEASE_VERSION}
+          version=${BRANCH_NAME}
           version=`echo $version|sed 's#[^a-zA-Z0-9_\.\-]#_#g'`
           echo "Uploading OpenAPI spec v ${RELEASE_VERSION}"
           pwd
