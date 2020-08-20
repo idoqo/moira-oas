@@ -22,7 +22,7 @@ jobs:
       - name: Extract branch name on push
         if: github.event_name != 'pull_request'
         id: extract_branch_name
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${{ github.event.ref }})"
 
       - name: Extract branch name on PR
         if: github.event_name == 'pull_request'
