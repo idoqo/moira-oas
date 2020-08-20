@@ -1,4 +1,4 @@
-name: deletespec
+name: Remove a spec from SwaggerHub
 defaults:
   run:
     working-directory: openapi
@@ -6,7 +6,6 @@ defaults:
 on:
   pull_request:
     types: [closed]
-  delete
 
 jobs:
   removespec:
