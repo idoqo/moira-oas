@@ -21,6 +21,7 @@ jobs:
           node-version: '14'
       - run: npm install -g swagger-cli
       - run: make spec
+      - run: make validate-spec
 
       - name: Save build artifact
         uses: actions/upload-artifact@v1
