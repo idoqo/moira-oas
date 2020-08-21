@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: "This is an API description for [Moira Alert project](https://moira.readthedocs.io/en/latest/overview.html). Please check https://github.com/moira-alert"
+  description: "This is an API description for [Moira Alert project](https://moira.readthedocs.io/en/latest/overview.html). Please check <https://github.com/moira-alert/>"
   version: "2.5.1.48"
   title: "Moira Alert"
   license:
