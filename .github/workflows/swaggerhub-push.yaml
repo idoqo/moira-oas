@@ -21,8 +21,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: npm install -g swagger-cli
+      - run: npm install -g swagger-cli @openapitools/openapi-generator-cli
       - run: make spec
+      - run: make validate-spec
 
       - name: Save build artifact
         uses: actions/upload-artifact@v1
