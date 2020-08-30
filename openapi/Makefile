@@ -1,6 +1,6 @@
 BUILD_DIR = build
-SPEC_FILE = $(BUILD_DIR)/openapi.yml
 CLIENTS_DIR = clients
+SPEC_FILE = $(BUILD_DIR)/openapi.yml
 NETWORK_LOG = $(BUILD_DIR)/cassette.yml
 API_URL = "http://localhost:8080/api"
 
@@ -18,6 +18,6 @@ generate-py:
 generate-go:
 	openapi-generator generate -g go -i $(SPEC_FILE) -o $(CLIENTS_DIR)/go
 generate-ts:
-	openapi-generator generate -g typescript-node -i $(SPEC_FILE) -o $(CLIENTS_DIR)/moira-ts
+	openapi-generator generate -g typescript-node -i $(SPEC_FILE) -o $(CLIENTS_DIR)/ts-node
 generate-cs:
 	openapi-generator generate -g csharp -i $(SPEC_FILE) -o $(CLIENTS_DIR)/csharp
