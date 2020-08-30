@@ -1,11 +1,20 @@
 ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/idoko/moira-oas/latest?color=green&label=docker&style=flat-square)
 
-# Documentation
-If you're new here, better check out the main Moira Alert [README](https://github.com/moira-alert/moira/blob/master/README.md).
+# Moira OpenAPI Specification
+[GSoC 2020 Project](https://summerofcode.withgoogle.com/projects/#5733016854331392)
+
+If you are new to Moira, check out the main [Moira repository](https://github.com/moira-alert/moira/).
 
 The pre-built docker image is available on docker hub at [idoko/moira-oas](https://hub.docker.com/r/idoko/moira-oas).
 ## Usage
-The OpenAPI description files are kept in a folder that corresponds to the path name. To bundle them into a single `yaml` file,
+The OpenAPI description files are kept in a folder that corresponds to the path name. Components that are shared across
+ OpenAPI operations live in the `shared` folder i.e:
+- `shared/parameters`: Contains the different parameters (they are all kept in a single
+`_index.yml`) file as they are not many enough to warrant individual files.
+- `shared/responses`: Responses that can be shared by different operations (such as errors)
+- `shared/schemas`: Schemas correspond to `dto` files in the main Moira repository. They usually 
+live in their own files due to their size. See [Issue #44](https://github.com/moira-alert/doc/issues/44) for details. 
+To bundle them into a single `yaml` file,
 Install [APIDevTools/swagger-cli](https://github.com/APIDevTools/swagger-cli) globally with:
 ```bash
 $ npm -i g swagger-cli
