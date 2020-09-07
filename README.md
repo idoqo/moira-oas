@@ -3,7 +3,7 @@
 # Moira OpenAPI Specification
 [GSoC 2020 Project](https://summerofcode.withgoogle.com/projects/#5733016854331392)
 
-If you are new to Moira, check out the main [Moira repository](https://github.com/moira-alert/moira/).
+The majority of this work is now part of the Moira documentation at <https://github.com/moira-alert/doc/>
 
 The pre-built docker image is available on docker hub at [idoko/moira-oas](https://hub.docker.com/r/idoko/moira-oas).
 ## Usage
